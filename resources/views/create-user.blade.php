@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <a href="javascript:void(0);" class="brand-logo">
 
-                        <h3 class="brand-text text-primary ml-1">Grazie i dati sono stati inseriti</h3>
+                        <h3   class="brand-text text-primary ml-1">Grazie i dati sono stati inseriti</h3>
 
                     </a>
 
