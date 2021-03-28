@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="customFile">Allega Screenshot</label>
                             <div class="custom-file">
-                                <input  name="file" type="file" class="custom-file-input" id="customFile">
+                                <input  name="file" type="file" class="custom-file-input" id="customFile" required>
                                 <label class="custom-file-label"  for="customFile">Seleziona</label>
                             </div>
                         </div>
