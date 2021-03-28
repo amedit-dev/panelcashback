@@ -21,6 +21,11 @@ use Carbon\Exceptions\InvalidFormatException;
 |
 */
 
+Route::get('/', function (){
+
+    return redirect()->route('codes.create');
+
+});
 
 Route::get('/accesso', [App\Http\Controllers\CodesController::class, 'create'])->name('codes.create');
 Route::post('/accesso', [App\Http\Controllers\CodesController::class, 'check'])->name('codes.check');
