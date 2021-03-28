@@ -65,7 +65,19 @@ Route::get('/transazioni/api/', function () {
 
     $transaction = Transaction::whereDate('created_at', '=', $date)->get();
 
-    return TransactionResource::collection($transaction);
+    if($transaction){
+
+        return TransactionResource::collection($transaction);
+
+    }else{
+
+        return '{
+  "data": []
+}';
+
+
+    }
+
 
 });
 

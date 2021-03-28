@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\TransactionResource;
 use App\Http\Resources\UserCollection;
+use App\Models\Codes;
 use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
@@ -20,8 +21,20 @@ class TransactionController extends Controller
 
     public function show(Request $request){
 
+        $code = Codes::where('code', '=', '900')->first();
 
-        return view('transaction-index');
+        if($code){
+
+            return view('transaction-index');
+
+
+        }else{
+
+            return redirect()->route('codes.create');
+
+
+        }
+
 
 
     }
@@ -37,9 +50,28 @@ class TransactionController extends Controller
     }
 
 
-    public function create(){
+    public function create(Request $request){
 
-        return view('create-transactions');
+
+        $code = Codes::where('code', '=', $request->codice)->first();
+
+        if($code){
+
+            if($code->code == '900'){
+
+                return redirect()->route('transaction.show');
+
+            }
+
+            return view('create-transactions');
+
+
+        }else{
+
+            return redirect()->route('codes.create');
+
+        }
+
     }
 
     public function store(Request  $request){
