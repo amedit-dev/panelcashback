@@ -173,7 +173,7 @@
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="../../../app-assets/js/scripts/tables/table-datatables-basic.min.js"></script>
+<script src="{{asset('app-assets/js/scripts/tables/table-datatables-basic.min.js')}}"></script>
 <!-- END: Page JS-->
 
 <script>

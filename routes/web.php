@@ -2,10 +2,13 @@
 
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\Codes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\TransactionResource;
+use Carbon\Carbon;
+use Carbon\Exceptions\InvalidFormatException;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,8 @@ use App\Http\Resources\TransactionResource;
 */
 
 
+Route::get('/accesso', [App\Http\Controllers\CodesController::class, 'create'])->name('codes.create');
+Route::post('/accesso', [App\Http\Controllers\CodesController::class, 'check'])->name('codes.check');
 
 
 Route::get('/transazioni/addtransazioni', [App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
@@ -35,9 +40,34 @@ Route::get('/transazioni', [App\Http\Controllers\TransactionController::class, '
 
 Route::post('/transazioni', [App\Http\Controllers\TransactionController::class, 'showdate'])->name('transaction.showdate');
 
-Route::get('/transazioni/{newdate}', [App\Http\Controllers\TransactionController::class, 'show'])->name('transaction.show');
+Route::get('/transazioni/', [App\Http\Controllers\TransactionController::class, 'show'])->name('transaction.show');
+
+//
+
+Route::get('/transazioni/api/', function () {
+
+    $date = request()->query('date');
 
 
+    $transaction = Transaction::whereDate('created_at', '=', $date)->get();
+
+
+    if ($date == 'null' OR empty($date)) {
+
+        $date = Carbon::today();
+
+    }else{
+
+        $date = request()->query('date');
+
+
+    }
+
+    $transaction = Transaction::whereDate('created_at', '=', $date)->get();
+
+    return TransactionResource::collection($transaction);
+
+});
 
 
 

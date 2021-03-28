@@ -116,6 +116,7 @@
                                     <th>Data</th>
                                     <th>Posizioni</th>
                                     <th>Transazione</th>
+                                    <th>Screenshot</th>
                                     <th>Nickname</th>
                                 </tr>
                                 </thead>
@@ -132,7 +133,24 @@
 </div>
 <!-- END: Content-->
 
-
+<!--div class="modal fade" id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Screenshot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id ="screenshoot" class="modal-body">
+                <img width="100%"  id ="screenshoot" src="http://127.0.0.1:8000/storage/images/gCV1OA7eRonJNxcgUxCO21R3RRaVAbJt6snBrzLi.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect waves-float waves-light" data-dismiss="modal">ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- BEGIN: Footer-->
@@ -158,7 +176,7 @@
 <script src="../../../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
-<script src="../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="{{asset('app-assets/vendors/js/tables/datatable/pdfmake.min.js')}}"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
@@ -167,14 +185,15 @@
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="../../../app-assets/js/core/app-menu.min.js"></script>
-<script src="../../../app-assets/js/core/app.min.js"></script>
-<script src="../../../app-assets/js/scripts/customizer.min.js"></script>
+<script src="{{asset('app-assets/js/core/app-menu.min.js')}}"></script>
+<script src="{{asset('app-assets/js/core/app.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/customizer.min.js')}}"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="../../../app-assets/js/scripts/tables/table-datatables-basic.min.js"></script>
+<script src="{{asset('app-assets/js/scripts/tables/table-datatables-basic.min.js')}}"></script>
 <!-- END: Page JS-->
+
 
 <script>
     $(window).on('load', function() {

@@ -13,7 +13,7 @@ class TransactionResource extends JsonResource
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
-     */   
+     */
     public function toArray($request)
     {
 
@@ -30,6 +30,7 @@ class TransactionResource extends JsonResource
 //                 $user = User::find($this->user_id)->get();
 //                 return $user->nickname;
 //            }),
+            'screenshot' => $this->screenshot,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

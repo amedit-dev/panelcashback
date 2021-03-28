@@ -15,7 +15,7 @@
                     <h4 class="card-title mb-1">Bienvenuto! 👋</h4>
                     <p class="card-text mb-2">Inserisci qui sotto i dati</p>
 
-                    <form class="auth-login-form mt-2" action="{{route('transaction.store')}}" method="POST">
+                    <form class="auth-login-form mt-2" action="{{route('transaction.store')}}" method="POST"  enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -50,7 +50,17 @@
                                 autofocus required
                             />
                         </div>
-                        @error('position')
+
+
+                        <div class="form-group">
+                            <label for="customFile">Allega Screenshot</label>
+                            <div class="custom-file">
+                                <input  name="file" type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label"  for="customFile">Seleziona</label>
+                            </div>
+                        </div>
+
+                        @error('file')
                         <div class="alert alert-danger"> {{$message}}</div>
                         @enderror
 

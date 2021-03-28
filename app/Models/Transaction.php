@@ -13,6 +13,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'position',
+        'screenshot',
         'transactions',
     ];
 
@@ -43,6 +44,15 @@ class Transaction extends Model
 
         return number_format($value , 0, ',', ' ');
 
+    }
+
+    public function getScreenshotAttribute($value)
+    {
+
+        if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
+            return $value;
+        }
+        return asset('storage/' . $value);
     }
 
 

@@ -24,7 +24,6 @@ class UserFactory extends Factory
     {
         return [
             'nickname' => $this->faker->name,
-
         ];
     }
 

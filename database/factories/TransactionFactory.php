@@ -27,6 +27,7 @@ class TransactionFactory extends Factory
             'position' => $this->faker->numberBetween(1,150000),
             'transactions' => $this->faker->numberBetween(1,1000),
             'user_id' => User::factory(),
+            'screenshot' => $this->faker->imageUrl(),
         ];
     }
 }

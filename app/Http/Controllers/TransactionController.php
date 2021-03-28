@@ -32,8 +32,7 @@ class TransactionController extends Controller
 
         $newdate = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
 
-        return redirect()->route('transaction.show',compact('newdate'));
-
+        return redirect()->route('transaction.show', ['date' => $newdate] );
 
     }
 
@@ -49,7 +48,16 @@ class TransactionController extends Controller
         $inpute = $request->validate([
             'position' => ['required','max:10'],
             'transactions' => ['required','max:10'],
+            'screenshot' => 'mimes:jpeg,png,jpg'
+
         ]) ;
+
+        if($file= $request->file('file')){
+
+            $inpute['screenshot'] = $file->store('images');
+
+        }
+
 
         if($request->nickname){
 
