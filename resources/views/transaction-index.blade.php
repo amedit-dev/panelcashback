@@ -193,6 +193,15 @@
 <!-- BEGIN: Page JS-->
 <script src="{{asset('app-assets/js/scripts/tables/table-datatables-basic.min.js')}}"></script>
 <!-- END: Page JS-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167812993-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-167812993-1');
+</script>
 
 
 <script>
@@ -206,6 +215,8 @@
     })
 </script>
 </body>
+
+
 <!-- END: Body-->
 
 </html>
