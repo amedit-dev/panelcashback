@@ -11,6 +11,13 @@ class CodesController extends Controller
 {
 
 
+    public  function login(){
+
+
+        return view('codes-index');
+
+    }
+
     public  function index(){
 
         $codes = Codes::all();

@@ -23,7 +23,7 @@ use Carbon\Exceptions\InvalidFormatException;
 
 Route::get('/', function (){
 
-    return redirect()->route('codes.create');
+    return redirect()->route('codes.login');
 
 });
 
@@ -46,6 +46,7 @@ Route::get('/transazioni/', [App\Http\Controllers\TransactionController::class, 
 
 
 Route::post('/accesso', [App\Http\Controllers\CodesController::class, 'check'])->name('codes.check');
+Route::get('/accesso', [App\Http\Controllers\CodesController::class, 'login'])->name('codes.login');
 
 Route::get('/transazioni/codes', [\App\Http\Controllers\CodesController::class, 'index'])->name('codes.index');
 Route::get('/transazioni/codes/create', [\App\Http\Controllers\CodesController::class, 'create'])->name('codes.create');

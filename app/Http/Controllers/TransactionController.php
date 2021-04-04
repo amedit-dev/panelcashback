@@ -30,7 +30,7 @@ class TransactionController extends Controller
 
         }else{
 
-            return redirect()->route('codes.create');
+            return redirect()->route('codes.login');
 
 
         }
@@ -68,7 +68,7 @@ class TransactionController extends Controller
 
         }else{
 
-            return redirect()->route('codes.create');
+            return redirect()->route('codes.login');
 
         }
 
