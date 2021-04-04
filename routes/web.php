@@ -27,8 +27,6 @@ Route::get('/', function (){
 
 });
 
-Route::get('/accesso', [App\Http\Controllers\CodesController::class, 'create'])->name('codes.create');
-Route::post('/accesso', [App\Http\Controllers\CodesController::class, 'check'])->name('codes.check');
 
 
 Route::get('/transazioni/addtransazioni', [App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
@@ -42,12 +40,30 @@ Route::post('/addtransazioni/{user}/{transaction}/grazie', [App\Http\Controllers
 
 
 Route::get('/transazioni', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.index');
-
 Route::post('/transazioni', [App\Http\Controllers\TransactionController::class, 'showdate'])->name('transaction.showdate');
-
 Route::get('/transazioni/', [App\Http\Controllers\TransactionController::class, 'show'])->name('transaction.show');
 
-//
+
+
+Route::post('/accesso', [App\Http\Controllers\CodesController::class, 'check'])->name('codes.check');
+
+Route::get('/transazioni/codes', [\App\Http\Controllers\CodesController::class, 'index'])->name('codes.index');
+Route::get('/transazioni/codes/create', [\App\Http\Controllers\CodesController::class, 'create'])->name('codes.create');
+Route::post('/transazioni/codes', [\App\Http\Controllers\CodesController::class, 'store'])->name('codes.store');
+
+Route::get('/transazioni/codes/{codes}/destroy', [\App\Http\Controllers\CodesController::class, 'destroy'])->name('codes.destroy');
+
+
+
+
+
+
+
+
+
+
+
+///// API
 
 Route::get('/transazioni/api/', function () {
 

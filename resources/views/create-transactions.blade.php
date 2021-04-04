@@ -97,11 +97,6 @@
             <!-- /Login v1 -->
         </div>
 
-
-
-
-
-
     @endsection
 
 

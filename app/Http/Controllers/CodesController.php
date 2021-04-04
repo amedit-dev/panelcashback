@@ -9,11 +9,52 @@ use Illuminate\Http\Request;
 
 class CodesController extends Controller
 {
-    public function create(){
 
-        return view('codes-index');
+
+    public  function index(){
+
+        $codes = Codes::all();
+
+        return view('admin.codes-index', compact('codes'));
 
     }
+
+
+    public function create(){
+
+        return view('admin.codes-create');
+
+    }
+
+    public function store(Request $request){
+
+
+
+        $inpute = \request()->validate([
+            'code' => ['required', 'max:255', 'unique:codes'],
+        ]);
+
+
+        $codes = new Codes($inpute);
+        $codes->save();
+
+        $request->session()->flash('code-created-message' , 'Codice Creato');
+
+
+        return redirect()->route('codes.index');
+    }
+
+
+    public function destroy(Codes $codes, Request $request){
+
+
+
+
+        $codes->delete();
+
+        return back();
+    }
+
 
     public function check(Request $request){
 
@@ -35,7 +76,7 @@ class CodesController extends Controller
 
         }
 
-        $request->session()->flash('codes-index-message' , "il codice  ".$code."  è sbagliato");
+        $request->session()->flash('codes-index-message' , "il codice  ".$code."  è Scaduto");
 
         return back();
     }
