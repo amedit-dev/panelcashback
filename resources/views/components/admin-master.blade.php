@@ -62,12 +62,25 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href="/transazioni"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span><span class="badge badge-light-warning badge-pill ml-auto mr-1">2</span></a>
-                <ul class="menu-content">
-                </ul>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{route('transaction.show')}}">
+                    <i data-feather="home"></i>
+                    <span class="menu-title text-truncate" data-i18n="Calendar">Home</span>
+                </a>
+            </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{route('codes.index')}}">
+                    <i data-feather="calendar"></i>
+                    <span class="menu-title text-truncate" data-i18n="Calendar">Codice</span>
+                </a>
             </li>
 
         </ul>
+
+
+
+
     </div>
 </div>
 <!-- END: Main Menu-->
@@ -81,50 +94,9 @@
                 <div class="col-12">
                 </div>
             </div>
-            <!-- Basic table -->
-            <section id="basic-datatable">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
 
-                            <div class="card-body mt-2">
-                                <h4>Filtro</h4>
-                                <form id="form" class="dt_adv_search" method="POST" action="{{route('transaction.showdate')}}">
-                                    @csrf
-                                    <div class="row">
 
-                                        <div class="col-md-2 form-group">
-
-                                            <label class="form-label" for="basic-icon-default-date">Seleziona Data</label>
-                                            <input type="text"  name="date"  class="form-control dt-date flatpickr-input active" id="basic-icon-default-date" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY" readonly="readonly">
-
-                                        </div>
-
-                                    </div>
-                            </div>
-                            </form>
-
-                        </div>
-
-                        <table class="datatables-basic table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>id</th>
-                                <th>id</th>
-                                <th>Date</th>
-                                <th>Posizioni</th>
-                                <th>Transazione</th>
-                                <th>Nickname</th>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-        </div>
-        </section>
-        <!--/ Basic table -->
+         @yield('content')
 
 
     </div>
@@ -132,7 +104,24 @@
 </div>
 <!-- END: Content-->
 
-
+<!--div class="modal fade" id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Screenshot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id ="screenshoot" class="modal-body">
+                <img width="100%"  id ="screenshoot" src="http://127.0.0.1:8000/storage/images/gCV1OA7eRonJNxcgUxCO21R3RRaVAbJt6snBrzLi.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect waves-float waves-light" data-dismiss="modal">ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- BEGIN: Footer-->
@@ -158,7 +147,7 @@
 <script src="../../../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
-<script src="../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="{{asset('app-assets/vendors/js/tables/datatable/pdfmake.min.js')}}"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
 <script src="../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
@@ -167,9 +156,9 @@
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="../../../app-assets/js/core/app-menu.min.js"></script>
-<script src="../../../app-assets/js/core/app.min.js"></script>
-<script src="../../../app-assets/js/scripts/customizer.min.js"></script>
+<script src="{{asset('app-assets/js/core/app-menu.min.js')}}"></script>
+<script src="{{asset('app-assets/js/core/app.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/customizer.min.js')}}"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
@@ -185,6 +174,7 @@
     gtag('config', 'UA-167812993-1');
 </script>
 
+
 <script>
     $(window).on('load', function() {
         if (feather) {
@@ -196,6 +186,8 @@
     })
 </script>
 </body>
+
+
 <!-- END: Body-->
 
 </html>
