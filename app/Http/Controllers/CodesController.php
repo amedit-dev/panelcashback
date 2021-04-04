@@ -68,7 +68,7 @@ class CodesController extends Controller
 
         $inpute = \request()->validate([
 
-            'code' => ['required', 'integer'],
+            'code' => ['required'],
         ]);
 
 
