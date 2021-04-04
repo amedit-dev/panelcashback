@@ -21,7 +21,7 @@ class TransactionController extends Controller
 
     public function show(Request $request){
 
-        $code = Codes::where('code', '=', '900')->first();
+        $code = Codes::where('code', '=', '1541')->first();
 
         if($code){
 
@@ -57,7 +57,7 @@ class TransactionController extends Controller
 
         if($code){
 
-            if($code->code == '900'){
+            if($code->code == '1541'){
 
                 return redirect()->route('transaction.show');
 
