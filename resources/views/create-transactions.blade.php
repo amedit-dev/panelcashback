@@ -55,12 +55,12 @@
                         <div class="form-group">
                             <label for="customFile">Allega Screenshot</label>
                             <div class="custom-file">
-                                <input  name="file" type="file" class="custom-file-input" id="customFile" required>
+                                <input  name="screenshot" type="file" class="custom-file-input" id="customFile" required>
                                 <label class="custom-file-label"  for="customFile">Seleziona</label>
                             </div>
                         </div>
 
-                        @error('file')
+                        @error('screenshot')
                         <div class="alert alert-danger"> {{$message}}</div>
                         @enderror
 

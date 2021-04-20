@@ -46,7 +46,7 @@
                                         @if($code->code == '1541')
 
                                             <button class="btn btn-danger btn-block" tabindex="4" disabled>Elimina</button>
-                                            
+
                                         @else
 
                                             <button class="btn btn-danger btn-block" tabindex="4" >Elimina</button>

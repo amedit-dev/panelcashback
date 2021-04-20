@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class TransactionController extends Controller
 {
@@ -80,18 +81,36 @@ class TransactionController extends Controller
         $inpute = $request->validate([
             'position' => ['required','max:10'],
             'transactions' => ['required','max:10'],
-            'screenshot' => 'mimes:jpeg,png,jpg'
+            'screenshot' => 'required|mimes:jpeg,png,jpg,gif,svg'
 
         ]) ;
 
-        if($file= $request->file('file')){
+        if($file= $request->file('screenshot')){
 
-            $inpute['screenshot'] = $file->store('images');
+
+            $image = $file;
+            $imageF = time().'.'.$file->getClientOriginalExtension();
+
+            $destinationPath = public_path('/thumbnail');
+            $img = Image::make($image->getRealPath());
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageF);
+
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $imageF);
+
+            $inpute['screenshot'] = $imageF;
+
+
+
+        //    $inpute['screenshot'] = $image->store('images');
 
         }
 
 
         if($request->nickname){
+
 
 
             $user = User::where('nickname', '=', $request->nickname)->first();
