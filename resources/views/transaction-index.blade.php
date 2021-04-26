@@ -39,7 +39,7 @@
                                 <th>Transazione</th>
                                 <th>Screenshot</th>
                                 <th>Nickname</th>
-                                <th>Nickname</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                         </table>
