@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
+use function Symfony\Component\Translation\t;
 
 class TransactionController extends Controller
 {
@@ -76,73 +77,83 @@ class TransactionController extends Controller
     }
 
     public function store(Request  $request){
-
-
         $inpute = $request->validate([
             'position' => ['required','max:10'],
             'transactions' => ['required','max:10'],
             'screenshot' => 'required|mimes:jpeg,png,jpg,gif,svg'
-
         ]) ;
 
         if($file= $request->file('screenshot')){
 
-
             $image = $file;
             $imageF = time().'.'.$file->getClientOriginalExtension();
-
             $destinationPath = public_path('/thumbnail');
             $img = Image::make($image->getRealPath());
             $img->resize(500, 500, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageF);
-
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $imageF);
-
             $inpute['screenshot'] = $imageF;
-
-
-
         //    $inpute['screenshot'] = $image->store('images');
-
         }
-
 
         if($request->nickname){
 
-
-
             $user = User::where('nickname', '=', $request->nickname)->first();
-
-
             if($user){
 
-
             }else{
-
                 $user = new User();
                 $user->nickname = $request->nickname;
                 $user->save();
-
             }
-
         }else{
-
             $user = User::findOrFail(1);
-
         }
-
-
             $transaction = new Transaction($inpute);
             $user->transactions()->save($transaction);
-
-
         //$request->session()->flash('transaction-id' , '$transaction->id');
-
-
         return redirect()->route('user.create', compact('user', 'transaction'));
+    }
 
+    public function  edit(Transaction $transaction){
+
+        $nickname = $transaction->transactions;
+
+        //dd($nickname);
+        return view('transaction-edit', compact('transaction'));
 
     }
+
+    public function update(Transaction $transaction, Request $request)
+    {
+
+        $input =  request()->validate([
+
+            'position' => ['required','max:10'],
+            'transactions' => ['required','max:10']
+        ]);
+
+
+        $transaction->position = $input['position'];
+        $transaction->transactions = $input['transactions'];
+
+        $transaction->save();
+
+
+
+        return redirect()->route('transaction.show');
+
+    }
+
+    public function destroy(Transaction $transaction){
+
+
+        $transaction->delete();
+
+        return back();
+    }
+
+
 }

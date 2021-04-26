@@ -42,6 +42,13 @@ Route::post('/addtransazioni/{user}/{transaction}/grazie', [App\Http\Controllers
 Route::get('/transazioni', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.index');
 Route::post('/transazioni', [App\Http\Controllers\TransactionController::class, 'showdate'])->name('transaction.showdate');
 Route::get('/transazioni/', [App\Http\Controllers\TransactionController::class, 'show'])->name('transaction.show');
+Route::get('/transazioni/edit/{transaction}', [\App\Http\Controllers\TransactionController::class, 'edit'])->name('transaction.edit');
+Route::get('/transazioni/delete/{transaction}', [\App\Http\Controllers\TransactionController::class, 'destroy'])->name('transaction.destroy');
+Route::PATCH('transazioni/update/{transaction}', [App\Http\Controllers\TransactionController::class, 'update'])->name('transaction.update');
+
+
+
+
 
 
 

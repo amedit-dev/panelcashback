@@ -17,7 +17,7 @@ class Transaction extends Model
         'transactions',
     ];
 
-    public function users(){
+    public function user(){
 
         return $this->belongsTo('App\Models\User');
 
@@ -40,7 +40,7 @@ class Transaction extends Model
 
     }
 
-    public function getTransactionsAttribute($value){
+    public function OFFgetTransactionsAttribute($value){
 
         return number_format($value , 0, ',', ' ');
 

@@ -39,6 +39,7 @@
                                 <th>Transazione</th>
                                 <th>Screenshot</th>
                                 <th>Nickname</th>
+                                <th>Nickname</th>
                             </tr>
                             </thead>
                         </table>
