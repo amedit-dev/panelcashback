@@ -49,6 +49,34 @@
             </section>
             <!--/ Basic table -->
 
+            <button data-rel="http://png" type="button" class="btn btn-primary btn-add-record ml-2" data-toggle="modal" data-target="#exampleModalScrollable455"> Visualizza  </button>
+
+            <div  class="modal fade" id="exampleModalScrollable455" tabindex="-1" aria-labelledby="exampleModalScrollableTitle" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle455">Screenshot</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span> </button>
+                        </div>
+                        <div id="screenshootarea1" class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary waves-effect waves-float waves-light" data-dismiss="modal">ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+
+
     @endsection
+
+
+
 
 </x-admin-master>
