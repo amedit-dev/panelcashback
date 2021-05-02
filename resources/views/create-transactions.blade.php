@@ -74,7 +74,7 @@
                                 class="form-control"
                                 id="nickname"
                                 name="nickname"
-                                placeholder="Alex4515"
+                                placeholder="Mario Rossi"
                                 aria-describedby="nickname"
                                 tabindex="1"
                                 autofocus
