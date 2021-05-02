@@ -44,7 +44,7 @@
                                 class="form-control font-weight-bold"
                                 id="position"
                                 name="position"
-                                placeholder="120.000"
+                                placeholder="120000"
                                 aria-describedby="position"
                                 tabindex="1"
                                 autofocus required
@@ -65,9 +65,9 @@
                         @enderror
 
                         <div class="form-group">
-                            <label for="text" class="form-label">Nickname:</label>
+                            <label for="text" class="form-label">Nome Cognome:</label>
 
-                            <small class="text-muted">(optionale)</small>
+                            <small class="text-muted">(Nome su Facebook)</small>
 
                             <input
                                 type="text"
