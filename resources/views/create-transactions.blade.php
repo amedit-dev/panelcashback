@@ -65,19 +65,20 @@
                         @enderror
 
                         <div class="form-group">
-                            <label for="text" class="form-label">Nome Cognome:</label>
+                            <label for="text" class="form-label">Nome e Cognome:</label>
 
-                            <small class="text-muted">(Nome su Facebook)</small>
+                            <small class="text-muted alert-danger">(Obbligatorio)</small>
 
                             <input
                                 type="text"
                                 class="form-control"
                                 id="nickname"
                                 name="nickname"
-                                placeholder="Mario Rossi"
+                                placeholder="Come su Facebook"
                                 aria-describedby="nickname"
                                 tabindex="1"
                                 autofocus
+                                required
                             />
 
                         </div>
